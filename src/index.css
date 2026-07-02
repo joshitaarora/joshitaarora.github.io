@@ -1,0 +1,200 @@
+:root {
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+
+  --max-width: 880px;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+
+  --radius: 10px;
+  --border-width: 1px;
+  --transition: 160ms ease;
+}
+
+/* Light theme — matte beige & olive */
+:root,
+[data-theme='light'] {
+  --color-bg: #f2ece0;
+  --color-bg-raised: #e9e1d0;
+  --color-surface: #ffffff;
+  --color-border: #d9cfb8;
+  --color-text: #33321f;
+  --color-text-muted: #6b6a50;
+  --color-accent: #5f6a45;
+  --color-accent-strong: #454f30;
+  --color-accent-contrast: #f5f1e6;
+  --color-tag-bg: #e3ddc8;
+  --shadow-sm: 0 1px 2px rgba(51, 50, 31, 0.06);
+  --shadow-md: 0 6px 20px rgba(51, 50, 31, 0.08);
+}
+
+/* Dark theme — matte olive & charcoal */
+[data-theme='dark'] {
+  --color-bg: #201f18;
+  --color-bg-raised: #29281f;
+  --color-surface: #262519;
+  --color-border: #3d3b2c;
+  --color-text: #ece6d6;
+  --color-text-muted: #a9a488;
+  --color-accent: #b3b385;
+  --color-accent-strong: #cdd1a1;
+  --color-accent-contrast: #201f18;
+  --color-tag-bg: #322f22;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  transition: background var(--transition), color var(--transition);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 var(--space-2);
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 var(--space-2);
+  color: var(--color-text-muted);
+}
+
+a {
+  color: var(--color-accent-strong);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+section {
+  padding: var(--space-6) 0;
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-strong);
+  margin-bottom: var(--space-1);
+  display: block;
+}
+
+.card {
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-sm);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-tag-bg);
+  color: var(--color-text);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.8rem;
+  margin: 0 var(--space-1) var(--space-1) 0;
+}
+
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: var(--border-width) solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: transform var(--transition), background var(--transition), border-color var(--transition);
+}
+
+.btn:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-strong);
+  border-color: var(--color-accent-strong);
+}
+
+@media (max-width: 640px) {
+  section {
+    padding: var(--space-4) 0;
+  }
+}
